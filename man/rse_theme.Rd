@@ -5,6 +5,7 @@
 \title{A standardized ggplot theme for RSE's plots in reports and presentations}
 \usage{
 rse_theme(
+  ...,
   title_size = 22,
   title_family = "Verdana",
   text_family = "Verdana",

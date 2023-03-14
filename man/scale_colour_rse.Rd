@@ -5,9 +5,14 @@
 \alias{scale_fill_rse}
 \title{Create color scales for ggplots}
 \usage{
-scale_colour_rse(discrete = TRUE)
+scale_colour_rse(..., discrete = TRUE, legend_wrap_width = 15)
 
-scale_fill_rse(discrete = TRUE)
+scale_fill_rse(..., discrete = TRUE, legend_wrap_width = 15)
+}
+\arguments{
+\item{discrete}{A discrete scale (max 8 categories) must be used or continous? Default `discrete = TRUE`.}
+
+\item{legend_wrap_width}{A positive integer giving target line width (numeber of characters). Default is `15`.}
 }
 \description{
 These functions create a color/fill scale (with the persoalized RSE palette)

@@ -19,7 +19,7 @@
 #' geom_point() +
 #' rse_theme()
 #' }
-rse_theme <- function(
+rse_theme <- function(...,
     title_size = 22,
     title_family = "Verdana",
     text_family = "Verdana",
@@ -36,7 +36,7 @@ rse_theme <- function(
     caption_rel = 0.65){
 
 
-  ggplot2::theme_bw() %+replace%
+  ggplot2::theme_bw(...) %+replace%
     ggplot2::theme(
 
       #Text format:
