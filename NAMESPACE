@@ -2,8 +2,10 @@
 
 export("%>%")
 export(dbnomics_dwn)
+export(rse_pal)
 export(rse_theme)
 export(scale_colour_rse)
+export(scale_fill_rse)
 importFrom(ggplot2,"%+%")
 importFrom(ggplot2,"%+replace%")
 importFrom(magrittr,"%>%")

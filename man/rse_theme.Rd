@@ -23,8 +23,13 @@ rse_theme(
 )
 }
 \arguments{
+\item{...}{Arguments to be passed on to `ggplot2::theme()` for further personalisation}
+
 \item{title_size}{A numeric value. The size of the title in points. Default is `22`. This
 paramters determines - indirectly - also the sie of the subtitle.}
+
+\item{title_family, text_family, legend_family}{The font type for title, text, and legend. Default
+is set to "Verdana". The package automatically loads all fonts installed in the system (windows only).}
 
 \item{title_color, text_color, legend_color}{The text color of title, regular text and legend. The `title_color`
 paramters also sets the caption color.}
@@ -35,9 +40,6 @@ or two-element numeric vector)}
 \item{axis_face}{Font face ("plain", "italic", "bold", "bold.italic") of the axis text. Default is "plain".}
 
 \item{text_rel, strip_rel, axis_rel, legend_rel, caption_rel}{Relative size of various elements of text.}
-
-\item{title_familiy, text_family, legend_familiy}{The font type for title, text, and legend. Default
-is set to "Verdana". The package automatically loads all fonts installed in the system (windows only).}
 }
 \description{
 This function allows you to add a standardized theme to your ggplot graphics

@@ -3,17 +3,24 @@
 \name{scale_colour_rse}
 \alias{scale_colour_rse}
 \alias{scale_fill_rse}
-\title{Create color scales for ggplots}
+\title{Color scale constructor for RSE colors}
 \usage{
-scale_colour_rse(..., discrete = TRUE, legend_wrap_width = 15)
+scale_colour_rse(palette = "main", discrete = TRUE, reverse = FALSE, ...)
 
-scale_fill_rse(..., discrete = TRUE, legend_wrap_width = 15)
+scale_fill_rse(palette = "main", discrete = TRUE, reverse = FALSE, ...)
 }
 \arguments{
-\item{discrete}{A discrete scale (max 8 categories) must be used or continous? Default `discrete = TRUE`.}
+\item{palette}{Character name of palette in rse_palettes}
 
-\item{legend_wrap_width}{A positive integer giving target line width (numeber of characters). Default is `15`.}
+\item{discrete}{Boolean indicating whether color aesthetic is discrete or not}
+
+\item{reverse}{Boolean indicating whether the palette should be reversed}
+
+\item{...}{Additional arguments passed to discrete_scale() or
+scale_color_gradientn(), used respectively when discrete is TRUE or FALSE}
 }
 \description{
-These functions create a color/fill scale (with the persoalized RSE palette)
+Color scale constructor for RSE colors
+
+Fill scale constructor for rse colors
 }

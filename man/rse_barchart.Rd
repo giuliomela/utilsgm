@@ -13,6 +13,8 @@ rse_barchart(
 )
 }
 \arguments{
+\item{...}{Arguments to be passed on to `ggplot2::geom_bar` and `ggfittext::geom_bar_text`}
+
 \item{position}{Position adjustment, either as a string naming the adjustment
 (e.g. "jitter" to use position_jitter), or the result of a call to a position
 adjustment function. Use the latter if you need to change the settings of the adjustment.}

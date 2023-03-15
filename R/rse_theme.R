@@ -2,9 +2,10 @@
 #'
 #' This function allows you to add a standardized theme to your ggplot graphics
 #' @importFrom ggplot2 %+replace% %+%
+#' @param ... Arguments to be passed on to `ggplot2::theme()` for further personalisation
 #' @param title_size A numeric value. The size of the title in points. Default is `22`. This
 #'     paramters determines - indirectly - also the sie of the subtitle.
-#' @param title_familiy,text_family,legend_familiy The font type for title, text, and legend. Default
+#' @param title_family,text_family,legend_family The font type for title, text, and legend. Default
 #'     is set to "Verdana". The package automatically loads all fonts installed in the system (windows only).
 #' @param title_color,text_color,legend_color The text color of title, regular text and legend. The `title_color`
 #'     paramters also sets the caption color.
@@ -36,9 +37,9 @@ rse_theme <- function(...,
     caption_rel = 0.65){
 
 
-  ggplot2::theme_bw(...) %+replace%
+  ggplot2::theme_bw() %+replace%
     ggplot2::theme(
-
+      ...,
       #Text format:
       #This sets the font, size, type and colour of text for the chart's title
       plot.title = ggplot2::element_text(family = title_family,
@@ -86,7 +87,7 @@ rse_theme <- function(...,
       panel.background = ggplot2::element_blank(),
 
       #Strip background
-      strip.background = ggplot2::element_rect(fill="white"),
+      strip.background = ggplot2::element_rect(fill = NA, colour = NA),
       strip.text = ggplot2::element_text(
         family = text_family,
         face = "plain",

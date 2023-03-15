@@ -1,55 +1,37 @@
-#' Create color scales for ggplots
+#' Color scale constructor for RSE colors
 #'
-#' These functions create a color/fill scale (with the persoalized RSE palette)
-#' @param discrete A discrete scale (max 8 categories) must be used or continous? Default `discrete = TRUE`.
-#' @param legend_wrap_width A positive integer giving target line width (numeber of characters). Default is `15`.
+#' @param palette Character name of palette in rse_palettes
+#' @param discrete Boolean indicating whether color aesthetic is discrete or not
+#' @param reverse Boolean indicating whether the palette should be reversed
+#' @param ... Additional arguments passed to discrete_scale() or
+#'            scale_color_gradientn(), used respectively when discrete is TRUE or FALSE
 #' @export
-scale_colour_rse <- function(...,
+scale_colour_rse <- function(palette = "main",
                              discrete = TRUE,
-                             legend_wrap_width = 15) {
+                             reverse = FALSE,
+                             ...) {
+  pal <- utilsgm::rse_pal(palette = palette, reverse = reverse)
 
-  if(isTRUE(discrete)){
-
-    ggplot2::scale_colour_manual(...,
-                                 values = rse_palette,
-                                 labels = ~ stringr::str_wrap(.x, width = legend_wrap_width)
-                                 )
-
+  if (discrete) {
+    ggplot2::discrete_scale("colour", paste0("rse_", palette), palette = pal, ...)
   } else {
-
-    ggplot2::scale_colour_gradientn(...,
-      colors = c("#4ab69d", "#38b4c0", "#2667ac", "#eea9cc")
-    )
-
+    ggplot2::scale_color_gradientn(colours = pal(256), ...)
   }
-
 }
 
+#' Fill scale constructor for rse colors
+#'
 #' @rdname scale_colour_rse
-scale_fill_rse <- function(...,
+#' @export
+scale_fill_rse <- function(palette = "main",
                            discrete = TRUE,
-                           legend_wrap_width = 15) {
+                           reverse = FALSE,
+                           ...) {
+  pal <- utilsgm::rse_pal(palette = palette, reverse = reverse)
 
-  if(isTRUE(discrete)){
-
-    ggplot2::scale_fill_manual(...,
-                               values = rse_palette,
-                               labels = ~ stringr::str_wrap(.x, width = legend_wrap_width)
-                               )
-
+  if (discrete) {
+    ggplot2::discrete_scale("fill", paste0("rse_", palette), palette = pal, ...)
   } else {
-
-    ggplot2::scale_fill_gradientn(...,
-      colors = c("#4ab69d", "#38b4c0", "#2667ac", "#eea9cc")
-    )
-
+    ggplot2::scale_fill_gradientn(colours = pal(256), ...)
   }
-
 }
-
-# ggplot2::diamonds %>%
-#   head(10) %>%
-#   ggplot2::ggplot(ggplot2::aes(x = cut, y = price, fill = color)) +
-#   rse_theme() +
-#   scale_fill_rse() +
-#   rse_barchart(width = 0.5)

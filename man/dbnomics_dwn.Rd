@@ -6,6 +6,9 @@
 \usage{
 dbnomics_dwn(...)
 }
+\arguments{
+\item{...}{Arguments to be passed on to `rdbnomics::rdb()`}
+}
 \description{
 This wrapper transforms the variable "original_period" to a numeric variable named `year` when
 data are annual. Output is also transformed into a tibble.
